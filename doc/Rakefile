@@ -1,0 +1,15 @@
+document_name = "projekt1"
+task :default => [:see]
+
+task :see => ["#{document_name}.pdf"] do
+  sh "evince #{document_name}.pdf &"
+end
+
+file "#{document_name}.pdf" => ["#{document_name}.tex"] do
+  sh "pdflatex #{document_name}.tex"
+end
+
+task :clean do
+  puts "cleaning"
+  %x{rm *log *aux *out}
+end

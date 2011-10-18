@@ -1,0 +1,88 @@
+%\documentclass[a4paper]{scrartcl}
+\documentclass[a4paper]{article}
+\usepackage{fullpage}
+\usepackage{mdwlist}
+\usepackage{polski}
+\usepackage[utf8x]{inputenc}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage[unicode=true]{hyperref}
+\usepackage{listings}
+
+\lstset{ %
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line\dywiz numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line\dywiz numbers
+stepnumber=2,                   % the step between two line\dywiz numbers. If it's 1, each line 
+% will be numbered
+numbersep=5pt,                  % how far the line\dywiz numbers are from the code
+frame=single,                   % adds a~frame around the code
+}
+
+\newcommand{\doublesignature}[3][]{%
+  \parbox{\textwidth}{
+    \centering #3 \today\\
+    \vspace{2cm}
+
+    \parbox{7cm}{
+      \centering
+      \rule{6cm}{1pt}\\
+       #1 
+    }
+    \hfill
+    \parbox{7cm}{
+      \centering
+      \rule{6cm}{1pt}\\
+      #2
+    }
+  }
+}
+
+\begin{document}
+\sloppy
+
+\title{BaDoWSer}
+%\subtitle{silniczek graficzny w~coffeescripcie -- wirtualna kamera}
+\author{Bartosz Pieńkowski, Barnaba Turek}
+\maketitle
+\abstract{
+Celem projektu jest zapoznanie się z~rozproszonym otwartym system bazodanowym CouchDB.
+Projekt podzielony jest na 6 etapów, każdy z~nich odpowiada konkretnemu zagadnieniu i
+związane z~nim są konkretne artefakty.
+}
+\section{Motyw projektu}
+Projekt będzie kopiował podstawową funkcjonalność serwisów mikroblogowych (takich jak twitter).
+Danymi przechowywanymi w~bazie będą więc wiadomości, posiadane przez użytkowników i~ewentualnie połączone tagami.
+
+\section{Etapy projektu}
+\subsection{Rozpoznanie środowiska}
+Celem etapu jest zapoznanie się z~podstawowymi funkcjami bazy danych, takimi jak dodawanie, usuwanie, wyszukiwanie i~przeglądanie danych.
+
+\textbf{Artefakty:} Działający system zawierający jedną bazę danych, która bez żadnych dodatkowych programów jest w~stanie wyświetlić jakieś dane, zapisać jakieś dane i~w~jakiś sposób przetworzyć dane (np. znaleźć najnowsze wiadomości).
+
+\subsection{Replikacja}
+Celem etapu jest zapoznanie się z~tematem replikacji w~bazie, przećwiczenie różnych scenariuszy (Awaria części baz i~ponowne ich włączenie do systemu).
+
+\textbf{Artefakty:} Działający system rozproszony na wielu maszynach (zarówno wirtualnych jak i~fizycznych - ponieważ projekt jest dwuosobowy nie mamy możliwosci dużego rozproszenia w~sensie geograficznym), odporny na awarię części baz.
+
+\subsection{Replikacja II}
+Celem etapu jest zapoznanie się z~zagadnieniem rozwiązywania konfliktów (które mogą wystąpić kiedy połączenie między bazami zostanie utracone).
+
+\textbf{Artefakty:} Działający system rozproszony na wielu maszynach, który nie przestaje działać, jeśli maszyny stracą między sobą połączenie. Po ponownym uzyskaniu połączenia system próbuje połączyć dane i~istnieją scenariusze, w~których mu się udaje. System jest też odporny na jednoczesne edytowanie tych samych danych. 
+
+\subsection{Przetwarzanie danych}
+Celem etapu jest zagłębienie się w~tematy związane z~przetwarzaniem danych w~systemie opartym o~couchDB. Tematy takie jak indeksowanie i~budowanie widoków.
+
+\textbf{Artefakty:} Element systemu, który przetwarza dane, a~nie tylko je wyświetla. Przykładem takiego elementu może być wyszukiwarka lub komponent generujący statystyki.
+
+\subsection{Rozproszone migracje}
+Celem etapu jest zapoznanie się z~tematem zmiany schematu danych i~propagacji tej zmiany w~działącym środowisku.
+
+\textbf{Artefakty:} Zmiana elementu systemu i~struktury bazy, taka jak dodanie relacji (np. tagi, albo przynależność postów do użytkowników)
+
+\subsection{Lokalny klient}
+Celem etapu jest zapoznanie się z~opcją kopiowania bazy aplikacji do lokalnie działającej bazy danych - tak aby każdy użytkownik aplikacji mógł z~niej korzystać, nawet kiedy straci połączenie z~bazą.
+
+\textbf{Artefakty:} System pozwalający na bardzo dynamiczną i~często zmianę ilości podłączonych baz (odporny na to, że użytkownicy wyłączają komputery. 
+
+\end{document}
