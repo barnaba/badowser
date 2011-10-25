@@ -6,7 +6,7 @@ function(head, req) {
 
     while(row = getRow()) {
         posts.push({
-            "date": row.key,
+            "date": new Date(row.key),
             "body": row.value
         });
     }
