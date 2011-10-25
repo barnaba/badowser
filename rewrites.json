@@ -1,0 +1,11 @@
+[
+  {
+    "from": "",
+    "to": "_list/recent/posts",
+    "query": {"descending": "true"}
+  },
+  {
+    "from": "*",
+    "to": "*"
+  }
+]
