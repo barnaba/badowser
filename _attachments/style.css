@@ -2,3 +2,8 @@
   width: 500px;
   margin: 20px 0 0 20px;
 }
+
+textarea {
+  width: 500px;
+  margin-bottom: 10px;
+}
