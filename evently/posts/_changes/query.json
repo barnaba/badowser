@@ -1,0 +1,6 @@
+{
+    "view": "posts",
+    "descending": true,
+    "limit": 10,
+    "type": "newRows"
+}

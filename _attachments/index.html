@@ -9,12 +9,13 @@
   <body>
     <div id="content">
       <h1>Najnowsze wpisy</h1>
-      {{#posts}}
-      <blockquote>
-        <p>{{body}}</p>
-        <small>{{date}}</small>
-      </blockquote>
-      {{/posts}}
+      <div id="posts"></div>
     </div>
   </body>
+  <script src="vendor/couchapp/loader.js"></script>
+  <script type="text/javascript">
+    $.couch.app(function(app) {
+      $("#posts").evently("posts", app);
+    });
+  </script>
 </html>
