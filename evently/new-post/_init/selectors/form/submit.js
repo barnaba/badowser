@@ -1,7 +1,7 @@
 function() {
     var textarea = $("textarea", this);
 
-    $.couch.db("db").saveDoc({
+    $$(this).app.db.saveDoc({
         "body": textarea.val(),
         "date": new Date().getTime()
     });
