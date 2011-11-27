@@ -8,6 +8,8 @@
   </head>
   <body>
     <div id="content">
+      <div id="account"></div>
+      <hr>
       <h1>Nowy wpis</h1>
       <div id="new-post"></div>
       <hr>
@@ -18,6 +20,7 @@
   <script src="vendor/couchapp/loader.js"></script>
   <script type="text/javascript">
     $.couch.app(function(app) {
+      $("#account").evently("account", app);
       $("#new-post").evently("new-post", app);
       $("#recent-posts").evently("recent-posts", app);
     });
